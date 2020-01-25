@@ -7,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentDashboardComponent implements OnInit {
 
-  constructor() { }
+  student:any;
+  constructor() 
+  {
+  this.student = JSON.parse(window.sessionStorage.getItem("currentUser"));
+    console.log(this.student);
+  }
 
   ngOnInit() {
   }

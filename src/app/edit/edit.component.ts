@@ -26,11 +26,7 @@ export class EditComponent implements OnInit {
      let observableResult = 
              this.service.SelectByNo(No);
 
-      observableResult.subscribe((recordsFound)=>{
-        console.log(recordsFound[0]);
-        this.emp =  recordsFound[0];
-      });
-      
+
    }); 
   }
 

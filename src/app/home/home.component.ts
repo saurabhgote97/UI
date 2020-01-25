@@ -11,14 +11,17 @@ export class HomeComponent implements OnInit {
 
   emps: any;
   user:any;
+  role:any;
   constructor(private service: DataService, private router:Router) 
   {
     console.log("Home Component Created");
+    this.role = window.localStorage.getItem("role");
+    console.log(this.role +" is");
   }
   
   ngOnInit() {
-    this.user = JSON.parse(window.sessionStorage.getItem("currentUser"));
-    console.log("user is " + this.user.stuName);
+    //this.user = JSON.parse(window.sessionStorage.getItem("currentUser"));
+    //console.log("user is " + this.user.stuName);
   }
 
   GoToRegister()

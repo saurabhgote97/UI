@@ -7,22 +7,29 @@ import { HttpClient } from '@angular/common/http';
 export class DataService 
 {
   credentialsDetails:any;
-  
+
   //constructor(private helper: HttpClient) 
   constructor(private helper: HttpClient) 
   { 
     console.log("Data Service Object Created");
   }
 
-
+  SelectByNo(No)
+  {
+    return;
+  }
   Select()
   {
     return  this.helper.get("http://localhost:9898/emps");
   }
-
-  SelectByNo(No)
+  GetTestById(No)
   {
-    return  this.helper.get("http://localhost:9898/emps/" + No );
+    return this.helper.get("http://localhost:8080/AOnlineExaminationSystemProject/student/testList/"+No);
+  }
+
+  GetQuestions(No)
+  {
+    return  this.helper.get("http://localhost:8080/AOnlineExaminationSystemProject/test/listQuestion/"+No );
   }
 
   Insert(empObj)

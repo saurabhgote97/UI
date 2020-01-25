@@ -43,8 +43,8 @@
             <tr>
               <div class="col-md-2">
                   <div [ngSwitch]="role">
-                      
-                    <ul class="navbar-inverse " *ngSwitchCase="">
+                      <!--                  
+                   <ul class="navbar-inverse " *ngSwitchCase="'User'">
                       <li class="active">
                         <h4 style="color: azure;"><b>New User<br> Register Here ... </b></h4>
                         <a href="register">REGISTER</a>
@@ -84,71 +84,80 @@
                         <br>
                         <hr>
                   </ul>
-                        <ul class="navbar navbar-inverse" *ngSwitchCase="'A'">
+  -->
+ 
+<!-- --------------------------------------------------------------------------------------------- -->
+
+                        <ul class="navbar navbar-inverse" *ngSwitchCase="'Admin'">
                           <br>
-                            <li><a class="navbar-brand" href="#">Hello ,{{role}} , {{user.fName}}</a></li><br>
+                            <li><a class="navbar-brand" href="#">Hello Admin</a></li><br>
                           <hr>
-                            <li><a routerLink="/home/editprofile">Edit Profile</a></li>
-                            <li><a routerLink="/home/changePassword" routerLinkActive="active">Change Password</a></li>
+                            <li><a routerLink="/home/adminEditProfile">Edit Profile</a></li>
+                            <li><a routerLink="/home/adminChangePassword" routerLinkActive="active">Change Password</a></li>
                             <hr>
-                            <li><a routerLink="/home/listofbooks"><b>List all Books</b></a></li>
-                            <li><a routerLink="/home/checkBookavailability">Check Book Availability</a></li>
-                            <li><a routerLink="/home/add">Add New Book</a></li>
-                            <li><a routerLink="/home/add">Add New Copy</a></li>
-                            <li><a routerLink="/home/returnbook">Return Book</a></li>
-                            <li><a routerLink="/home/issue">Issue Book</a></li>
-                            <li><a routerLink="/home/issuedbooks">List of Issued Book</a></li>
+                            <li><a routerLink="/home/listofbooks"><b>List all Tests</b></a></li>
                             <li><a routerLink="/home/registerbylibrarian">Add New Member</a></li>
-                            <li><a routerLink="/home/payment">Take payment</a></li>
                             <li><a routerLink="/home/paymenthistory">Payment History</a></li>
                             <li><a routerLink="/home/listofuser">List Of All User</a></li>
-                            <li><a routerLink="/home/address">Add adress demo</a></li>
       
                             <hr>
-                  
+<!--                   
                             <li> <form role="search">
                               <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Search Book by Name">
                               </div>
                               <button type="button" (click)="onSearch()" class="btn btn-default">Search</button>
-                            </form></li>
+                            </form></li> -->
                             <br>
                             <hr>
                       </ul>
               
               
-                      <ul class="navbar navbar-inverse" *ngSwitchCase="'ADMIN'">
+<!-- --------------------------------------------------------------------------------------------- -->
+
+                      <ul class="navbar-inverse" *ngSwitchCase="'Student'">
                           <br>
-                          <li><a class="navbar-brand" href="#">Hello ,{{role}} {{user.fName}}</a></li><br>
+                          <li><a class="navbar-brand" href="/home/studentDashboard">Student Dashboard</a></li><br>
                         <hr>
-                            <li><a routerLink="/home/editprofile">Edit Profile</a></li>
-                            <li><a routerLink="/home/changePassword" routerLinkActive="active">Change Password</a></li>
+                            <li><a routerLink="/home/studentEditProfile">Edit Profile</a></li>
+                            <li><a routerLink="/home/studentChangePassword" routerLinkActive="active">Change Password</a></li>
                             <hr>
-                        <li ><a routerLink="/home/subjectwise">Subjectwise Copies Report</a></li>
-                        <li><a routerLink="/home/bookwise">Bookwise Copies Report</a></li>
-                        <li><a routerLink="/home/feesorfine">Fees/Fine Report</a></li> 
+                        <li ><a routerLink="/home/studentShowTest">Show Test</a></li>
+                        <li><a routerLink="/home/studentTakeHistory">Test History</a></li>
+                        <li><a routerLink="/home/studentShowReport">Show Report</a></li> 
+                        <br>
+                        <br>
+                        <br>
+                        <br> 
+                        <br>
+                        <br>
+                        <br>
+                        <br>
                         <br> 
                         <hr>
                       </ul>
+
+<!-- --------------------------------------------------------------------------------------------- -->
                        
-                      <ul class="navbar navbar-inverse" *ngSwitchCase="'MEMBER'">
+                      <ul class="navbar navbar-inverse" *ngSwitchCase="'InstitutePerson'">
                           <br>
-                          <li><a class="navbar-brand" href="#">Hello ,{{role}} {{user.fName}}</a></li><br>
+                          <li><a class="navbar-brand" href="#">Institute Dashboard</a></li><br>
                           <hr>
-                          <li><a routerLink="/home/editprofile">Edit Profile</a></li>
-                          <li><a routerLink="/home/changePassword" routerLinkActive="active">Change Password</a></li>
+                          <li><a routerLink="/home/instutiteEditProfile">Edit Profile</a></li>
+                          <li><a routerLink="/home/instutiteChangePassword" routerLinkActive="active">Change Password</a></li>
                           <hr>
-                        <li><a routerLink="/home/listofissuedBook">Issued Books</a></li>
-                        <li><a routerLink="/home/userpaymenthistoty">Payment History</a></li>
+                        <li><a routerLink="/home/listofissuedBook">Show Test History</a></li>
+                        <li><a routerLink="/home/userpaymenthistoty">Design New Test</a></li>
+                        <li><a routerLink="/home/userpaymenthistoty">Add Questions</a></li>
                         <li><a routerLink="/home/help">help</a></li>
               
                         <hr>
-                        <li> <form class="navbar-form navbar-left" role="search">
+                        <!-- <li> <form class="navbar-form navbar-left" role="search">
                           <div class="form-group">
                             <input type="text" class="form-control" placeholder="Search Book by Name">
                           </div>
                           <button type="button" (click)="onSearch()" class="btn btn-default">Search</button>
-                        </form></li>
+                        </form></li> -->
                         <br>
                         <hr>
                       </ul>
@@ -156,7 +165,7 @@
                     </div>
               </div>
       
-              <div class="col-md-8">
+              <div class="col-md-10">
                 <!-- <router-outlet></router-outlet>
                 <button type="button"  class="btn btn-success" (click)="GoToRegister()">Add New Record</button> 
 
@@ -191,7 +200,7 @@
 </div> -->
                     <router-outlet></router-outlet>
               </div>
-      
+      <!--
               <div class="col-md-2">
                 
                   <div class="navbar">
@@ -232,8 +241,8 @@
             </tr>
           </tbody>
         </table>
-      </div>
-      
+      </div>-->
+      <!-- <div>  <h2 style="color: red"><marquee>Welcome to Examination</marquee></h2></div> -->
       <!-- 
       
       <nav class="navbar sticky-top navbar-inverse" *ngIf="flag">

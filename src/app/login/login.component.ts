@@ -33,8 +33,14 @@ export class LoginComponent implements OnInit {
      
     }
     else{
+      console.log("User Name / Password is Invalid!");
       this.message = "User Name / Password is Invalid!";
     }
+  }
+  Register()
+  {
+    console.log("inside Register");
+    this.router.navigate(["/register"]); 
   }
 }
 

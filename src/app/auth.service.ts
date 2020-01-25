@@ -10,8 +10,8 @@ export class AuthService  implements CanActivate
 {
   user:any;
   credentialsDetails:any;
-  flag:any ;
-  baseUrl = "http://localhost:9090/AOnlineExaminationSystemProject/";
+  role:any;
+  baseUrl = "http://localhost:8080/AOnlineExaminationSystemProject/";
   constructor(private router:Router,private service:DataService,private helper:HttpClient) {
     this.credentialsDetails ={
       "email":"AS",
@@ -86,34 +86,71 @@ export class AuthService  implements CanActivate
     }*/
     if(credentials.role == "Student")
       {
+        window.localStorage.setItem("role","Student");
       //this.service.StudentLogin(this.credentialsDetails).subscribe((data)=>{
       this.user = this.StudentLogin(this.credentialsDetails);
     }
     else if(credentials.role == "Admin")
     {
+      window.localStorage.setItem("role","Admin");
       this.user = this.AdminLogin(this.credentialsDetails);
     }
     else
     {
+      window.localStorage.setItem("role","InstitutePerson");
       this.user =this.InstutitePersonLogin(this.credentialsDetails);
     }
     
     this.user.subscribe((data)=>{
       console.log(data);
-      console.log("Email is  "+data.email);
-      if(data.email == credentials.UserName && data.password == credentials.Password)
+      //if(data == null)
+      //{       
+       // window.localStorage.setItem("flag","0");
+       // return ;
+     // }
+      //console.log("Email is  "+data.email);
+      if(data == null)
+      {       
+        window.localStorage.setItem("flag","0");
+        return false;
+      }
+      else if(data.email == credentials.UserName && data.password == credentials.Password)
       {
         console.log("Inside Auth Subscribe : " + data);  
         window.sessionStorage.setItem("currentUser",JSON.stringify(data));
         window.sessionStorage.setItem("isActive", "1");
-        this.router.navigate(['/home']); 
+        //this.flag = true;
+        window.localStorage.setItem("flag","1");
+        this.role = window.localStorage.getItem("role");
+        console.log("role is "+ this.role);
+        if(this.role == "Student")
+        {
+          console.log("Inside Stdent role");
+          this.router.navigate(['/home/studentDashboard']);
+        }
+        else if(this.role == "Admin")
+        {
+          console.log("Inside Admin role");
+          this.router.navigate(['/home/adminDashboard']);
+        }
+        else
+        {
+          console.log("Inside InstitutePeson role");
+          this.router.navigate(['/home/institutePersonDashboard']);
+        } 
       }
       else
       {
-       return false;    
+        window.localStorage.setItem("flag","0");
+        return false;    
       }
     });
-   console.log("this.Flag "+ this.flag);
+    console.log("Storagee");
+    console.log(window.localStorage.getItem("flag"));
+    console.log(window.localStorage.getItem("flag") == "1");
+    if(window.localStorage.getItem("flag") == "1")  
+      return true;
+    else
       return false;
   }
 ////////////////////////////////////////////////////////////////////////////////////////////////////
