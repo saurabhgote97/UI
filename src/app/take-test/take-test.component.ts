@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, Route } from '@angular/router';
 import { DataService } from '../data.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-take-test',
@@ -14,7 +14,7 @@ export class TakeTestComponent implements OnInit {
   student:any;
   questionNo:any;
   options:any[];
-  public init2:number =1500;
+  public init2:number =600;
   public counter:number = 0;
   public seconds:number = 0;
    
@@ -30,7 +30,7 @@ export class TakeTestComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.sartCoundown();
+    this.startCoundown();
     
     this.route.paramMap.subscribe((result)=>
     {
@@ -47,13 +47,16 @@ export class TakeTestComponent implements OnInit {
     console.log("Inside Evaluate"); 
    // this.seconds = 0; 
     this.flag = 1;
-    this.router.navigate(["/home/latestResult"]);
+    console.log(myForm);
+    console.log(myForm.form.value);
+    //this.router.navigate(["/home/latestResult"]);
+    
 
   }
 
 
   ///////////////////////////////////////////////////////////////////////////////////////////
-  sartCoundown()
+  startCoundown()
   {
     if(this.init2 && this.init2 >0)
     {
@@ -78,8 +81,9 @@ export class TakeTestComponent implements OnInit {
       if(this.flag == 0)
       {
         alert("Exam Submitted!!");
+        this.router.navigate(["/home/studentDashboard"]);
       }
-      this.router.navigate(["/home/studentDashboard"]);
+    
     }
     else
     {
@@ -97,5 +101,6 @@ export class TakeTestComponent implements OnInit {
   {
       console.log("Value is "+value);
   }
+
 
 }

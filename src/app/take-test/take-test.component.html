@@ -14,17 +14,17 @@
                 <th></th>
             </tr>
         </thead> 
-        <tbody *ngFor="let question of questions;let i of index">
+        <tbody *ngFor="let question of questions;index as i">
             <tr>
                 <td colspan="2">{{question.question}}</td>
             </tr>
             <tr>
-                <td><input type="button" value="{{question.op1}}" onclick="Answer(i)"></td>
-                <td><input type="button" value="{{question.op2}}" onclick="Answer(i)"></td>
+                <td><input ngModel type="radio" value="op1{{i}}" name="{{i}}">{{question.op1}}</td>
+                <td><input ngModel type="radio" value="op2{{i}}" name="{{i}}">{{question.op2}}</td>
             </tr>
             <tr>
-                <td><input type="button" value="{{question.op3}}" onclick="Answer(i)"></td>
-                <td><input type="button" value="{{question.op4}}" onclick="Answer(i)"></td>
+                <td><input ngModel type="radio" value="op3{{i}}" name="{{i}}">{{question.op3}}</td>
+                <td><input ngModel type="radio" value="op4{{i}}" name="{{i}}">{{question.op4}}</td>
             </tr>
         </tbody>
     </table>
@@ -34,6 +34,9 @@
     </div>
 </div>
 </form>
+<!-- <ul *ngFor="let item of questions; index as i"> 
+    <li>{{i+1}} {{item}}</li>
+  </ul> -->
 
 <!-- <table class="table table-hover">
   <thead>
@@ -76,7 +79,7 @@
   <div class="centerAllign well">
   <div class="panel panel-primary">
     <div class="panel-heading">{{data[qnProgress].question}}</div>
-  
+   ---------------------------------------------------------------------- 
 
     <div class="panel-body">
         <ul class="collection answer">
@@ -101,28 +104,34 @@
 
 
  -->
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="container">
-  <div class="centerAllign well">
-  <div *ngFor="let item of data">
-    <span>Q.  {{item.question}}</span><br><br>
-    <span>1.  {{item.op1}}</span><br><br>
-    <span>2.  {{item.op2}}</span><br><br>
-    <span>3.  {{item.op3}}</span><br><br>
-    <span>4.  {{item.op4}}</span><br><br>
-    <button (click)="getQuestion()" class="btn btn-success" style="margin-left: 10px;">check answer</button>
-    <hr>
-  </div>
-  </div>
-
-</div> -->
+<!-- 
+    <h2 style="text-align:center;">{{displayTimeElapsed()}}<h2>
+<form #examForm="ngForm" (ngSubmit)="Evaluate(examForm)">
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th></th>
+            </tr>
+        </thead> 
+        <tbody *ngFor="let question of questions;index as i">
+            <tr>
+                <td colspan="2">{{question.question}}</td>
+            </tr>
+            <tr>
+                <td>{{i}}<input type="button" value="{{question.op1}}" onclick="Answer(i)"></td>
+                <td>{{i}}<input type="button" value="{{question.op2}}" onclick="Answer(i)"></td>
+            </tr>
+            <tr>
+                <td>{{i}}<input type="button" value="{{question.op3}}" onclick="Answer(i)"></td>
+                <td>{{i}}<input type="button" value="{{question.op4}}" onclick="Answer(i)"></td>
+            </tr>
+        </tbody>
+    </table>
+    <div> 
+      <button type="submit" class="btn btn-primary">Submit Test</button>
+       
+    </div>
+</div>
+</form>
+ -->

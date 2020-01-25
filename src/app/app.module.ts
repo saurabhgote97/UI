@@ -23,12 +23,13 @@ import { InstEditProfileComponent } from './inst-edit-profile/inst-edit-profile.
 import { StuEditProfileComponent } from './stu-edit-profile/stu-edit-profile.component';
 import { StuChangePasswordComponent } from './stu-change-password/stu-change-password.component';
 import { ShowTestComponent } from './show-test/show-test.component';
-import { TakeTestComponent } from './take-test/take-test.component';
+//import { TakeTestComponent } from './take-test/take-test.component';
 import { StuTestHistoryComponent } from './stu-test-history/stu-test-history.component';
 import { StuShowReportComponent } from './stu-show-report/stu-show-report.component';
 import { LatestResultComponent } from './latest-result/latest-result.component';
 import { AdminEditProfileComponent } from './admin-edit-profile/admin-edit-profile.component';
 import { AdminChangePasswordComponent } from './admin-change-password/admin-change-password.component';
+import { TakeTestComponent } from './take-test/take-test.component';
 
 @NgModule({
   declarations: [
