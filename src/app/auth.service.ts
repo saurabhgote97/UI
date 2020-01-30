@@ -11,7 +11,7 @@ export class AuthService  implements CanActivate
   user:any;
   credentialsDetails:any;
   role:any;
-  baseUrl = "http://localhost:8080/AOnlineExaminationSystemProject/";
+  baseUrl = "http://localhost:7070/AOnlineExaminationSystemProject/";
   constructor(private router:Router,private service:DataService,private helper:HttpClient) {
     this.credentialsDetails ={
       "email":"AS",
